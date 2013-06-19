@@ -7,39 +7,54 @@ package com.sirma.itt.javacourse.patterns.calculator;
 public class Calculator {
 	private float current = 0;
 
-
-
 	/**
-	 * Calculates the operator and the operand and updates the current value.
+	 * Adds the opearand to the current result.
 	 * 
 	 * @param operand
-	 *            is the number to operate with
-	 * @param operator
-	 *            is the operator character
+	 *            is the number to add
 	 */
-	public void calculate(float operand, char operator) {
-		float oldCurrent = current;
-		switch (operator) {
-			case '+':
-				current += operand;
-				break;
-			case '-':
-				current -= operand;
-				break;
-			case '*':
-				current *= operand;
-				break;
-			case '/':
-				current /= operand;
-				break;
-			case '^':
-				current = (float) Math.pow(current, operand);
-				break;
-			default:
-				break;
-		}
-		System.out.println(oldCurrent + " " + operator + " " + operand + " = "
-				+ current);
+	public void add(float operand) {
+		current += operand;
+	}
+
+	/**
+	 * Substracts the operand from the current value.
+	 * 
+	 * @param operand
+	 *            is the number to subastarct
+	 */
+	public void substract(float operand) {
+		current -= operand;
+	}
+	
+	/**
+	 * Multiplies the current value by the operand.
+	 * 
+	 * @param operand
+	 *            is the number to multiply by
+	 */
+	public void multiply(float operand) {
+		current *= operand;
+	}
+
+	/**
+	 * Divides the current value by the operand value.
+	 * 
+	 * @param operand
+	 *            is the number to divide by
+	 */
+	public void divide(float operand) {
+		current /= operand;
+	}
+
+	/**
+	 * Multiplies the current value by itself the given number of times.
+	 * 
+	 * @param operand
+	 *            is the power to evalueate of
+	 */
+	public void power(int operand) {
+		current = (float) Math.pow(current, operand);
 	}
 
 	/**

@@ -18,7 +18,7 @@ public final class Singleton {
 	 * 
 	 * @return an instance of the singleton class
 	 */
-	public static Singleton getInstance() {
+	public static synchronized Singleton getInstance() {
 		if (instance == null) {
 			instance = new Singleton();
 		}

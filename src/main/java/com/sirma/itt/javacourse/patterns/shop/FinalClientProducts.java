@@ -2,6 +2,8 @@ package com.sirma.itt.javacourse.patterns.shop;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * The final client that observes the available and sold products.
@@ -36,10 +38,12 @@ public class FinalClientProducts implements Observer {
 		return sold;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public void notify(Observable observable, Object... objs) {
-		this.available = (List<Product>) objs[0];
-		this.sold = (List<Product>) objs[1];
+	@SuppressWarnings("unchecked")
+	public void update(Observable o, Object arg) {
+		List<Product> listArg = (List<Product>) arg;
+		this.available = (List<Product>) listArg.get(0);
+		this.sold = (List<Product>) listArg.get(1);
+
 	}
 }

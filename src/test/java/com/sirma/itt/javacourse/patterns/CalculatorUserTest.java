@@ -17,6 +17,9 @@ public class CalculatorUserTest {
 	@Test
 	public void test() {
 		CalculatorUser user = new CalculatorUser();
+		/*
+		 * The initial value of the calculator is 0
+		 */
 		assertTrue(user.compute('+', 100) == 100);
 		assertTrue(user.compute('-', 50) == 50);
 		assertTrue(user.compute('*', 2) == 100);

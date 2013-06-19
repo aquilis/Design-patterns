@@ -2,38 +2,20 @@ package com.sirma.itt.javacourse.patterns.shop;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 /**
  * Maintains a statistics for the available goods in the shop.
  */
-public class ProductsLister implements Observable {
+public class ProductsLister extends Observable {
 
-	private List<Product> availableProducts;
-	private List<Observer> observers;
+	private final List<Product> availableProducts;
 	
 	/**
 	 * A nullary constrcutor.
 	 */
 	public ProductsLister() {
 		this.availableProducts = new ArrayList<Product>();
-		this.observers = new ArrayList<Observer>();
-	}
-
-	@Override
-	public void addObserver(Observer o) {
-		observers.add(o);
-	}
-
-	@Override
-	public void removeObserver(Observer o) {
-		observers.remove(o);
-	}
-
-	@Override
-	public void notifyAllObservers() {
-		for (Observer obs : observers) {
-			obs.notify(this, availableProducts);
-		}
 	}
 
 	/**
@@ -44,6 +26,6 @@ public class ProductsLister implements Observable {
 	 */
 	public void add(Product product) {
 		availableProducts.add(product);
-		notifyAllObservers();
+		notifyObservers(availableProducts);
 	}
 }

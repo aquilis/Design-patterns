@@ -13,8 +13,10 @@ public class CalculatorUser {
 	private final List<Command> executedCommands = new ArrayList<Command>();
 	private final Calculator calculator = new Calculator();
 	private final Scanner scn = new Scanner(System.in);
+	
 	/**
-	 * Opens a custom command console to input commands to the calculator.
+	 * Opens a custom command line to use the calculator as a console
+	 * application.
 	 */
 	public void openConsole() {
 		System.out.println(calculator.getCurrent());
@@ -23,8 +25,11 @@ public class CalculatorUser {
 			char tempOperator = scn.nextLine().charAt(0);
 			System.out.println("Enter operand: ");
 			float tempOperand = scn.nextFloat();
+			float oldCurrent = calculator.getCurrent();
 			compute(tempOperator, tempOperand);
 			scn.nextLine();
+			System.out.println(oldCurrent + " " + tempOperator + " "
+					+ tempOperand + " = " + calculator.getCurrent());
 		} while (true);
 	}
 
@@ -53,7 +58,27 @@ public class CalculatorUser {
 	 * @return the result from the calculation
 	 */
 	public float compute(char operator, float operand) {
-		Command cmd = new CalculateCommand(calculator, operator, operand);
+		Command cmd = null;
+		switch (operator) {
+			case '+':
+				cmd = new CommandAdd(operand, calculator);
+				break;
+			case '-':
+				cmd = new CommandSubstract(operand, calculator);
+				break;
+			case '*':
+				cmd = new CommandMultiply(operand, calculator);
+				break;
+			case '/':
+				cmd = new CommandDivide(operand, calculator);
+				break;
+			case '^':
+				cmd = new CommandPower((int) operand, calculator);
+				break;
+			default:
+				throw new IllegalArgumentException("Operation " + operator
+						+ " is invalid.");
+		}
 		cmd.execute();
 		executedCommands.add(cmd);
 		return calculator.getCurrent();

@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.patterns;
+package com.sirma.itt.javacourse.patterns.proxy;
 
 /**
  * The proxy class of the real integer class.

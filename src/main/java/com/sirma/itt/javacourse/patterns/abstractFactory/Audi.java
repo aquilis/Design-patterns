@@ -1,4 +1,5 @@
-package com.sirma.itt.javacourse.patterns;
+package com.sirma.itt.javacourse.patterns.abstractFactory;
+
 
 /**
  * Product B.

@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.patterns;
+package com.sirma.itt.javacourse.patterns.calculator;
 
 import java.util.ArrayList;
 import java.util.List;

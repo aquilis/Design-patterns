@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.patterns;
+package com.sirma.itt.javacourse.patterns.calculator;
 
 /**
  * The base command interface realizing the command pattern.

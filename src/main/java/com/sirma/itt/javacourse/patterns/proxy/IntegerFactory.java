@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.patterns;
+package com.sirma.itt.javacourse.patterns.proxy;
 
 /**
  * The client that deals with the intgere proxy.

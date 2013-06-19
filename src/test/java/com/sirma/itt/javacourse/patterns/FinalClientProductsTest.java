@@ -5,6 +5,12 @@ import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.sirma.itt.javacourse.patterns.shop.FinalClientProducts;
+import com.sirma.itt.javacourse.patterns.shop.Product;
+import com.sirma.itt.javacourse.patterns.shop.ProductsLister;
+import com.sirma.itt.javacourse.patterns.shop.ProductsObserver;
+import com.sirma.itt.javacourse.patterns.shop.SoldProductsLister;
+
 /**
  * Tests the logic of the observer pattern.
  */

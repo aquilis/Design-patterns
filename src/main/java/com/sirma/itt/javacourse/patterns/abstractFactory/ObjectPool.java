@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.patterns;
+package com.sirma.itt.javacourse.patterns.abstractFactory;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.patterns;
+package com.sirma.itt.javacourse.patterns.proxy;
 
 /**
  * The subject interface for the integer class and the integer proxy.

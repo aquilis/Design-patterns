@@ -2,6 +2,12 @@ package com.sirma.itt.javacourse.patterns;
 
 import org.junit.Test;
 
+import com.sirma.itt.javacourse.patterns.abstractFactory.Bmw;
+import com.sirma.itt.javacourse.patterns.abstractFactory.BmwFactory;
+import com.sirma.itt.javacourse.patterns.abstractFactory.EmptyPoolException;
+import com.sirma.itt.javacourse.patterns.abstractFactory.FullPoolException;
+import com.sirma.itt.javacourse.patterns.abstractFactory.ObjectPool;
+
 /**
  * Test the Object pool.
  * 

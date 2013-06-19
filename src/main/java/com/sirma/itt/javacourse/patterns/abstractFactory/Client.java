@@ -1,4 +1,5 @@
-package com.sirma.itt.javacourse.patterns;
+package com.sirma.itt.javacourse.patterns.abstractFactory;
+
 
 /**
  * The client class that uses the functionality of the abstract factory.

@@ -1,4 +1,5 @@
-package com.sirma.itt.javacourse.patterns;
+package com.sirma.itt.javacourse.patterns.abstractFactory;
+
 
 /**
  * Product A.
@@ -9,5 +10,4 @@ public class Bmw implements Car {
 	public void printData() {
 		System.out.println("BMW print data");
 	}
-
 }

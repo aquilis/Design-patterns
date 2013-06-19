@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.patterns;
+package com.sirma.itt.javacourse.patterns.shop;
 
 /**
  * A product class used for the Observer pattern. Implements a simple logic for

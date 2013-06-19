@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.patterns;
+package com.sirma.itt.javacourse.patterns.shop;
 
 /**
  * The observer classes that are notified for changes in the observable classes

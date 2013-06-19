@@ -1,4 +1,4 @@
-package com.sirma.itt.javacourse.patterns;
+package com.sirma.itt.javacourse.patterns.shop;
 
 /**
  * Interface implemented by all classes that will be observable by other classes

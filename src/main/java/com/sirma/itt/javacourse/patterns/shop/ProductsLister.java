@@ -26,6 +26,7 @@ public class ProductsLister extends Observable {
 	 */
 	public void add(Product product) {
 		availableProducts.add(product);
+		setChanged();
 		notifyObservers(availableProducts);
 	}
 }

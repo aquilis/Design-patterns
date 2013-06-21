@@ -38,12 +38,16 @@ public class FinalClientProducts implements Observer {
 		return sold;
 	}
 
+	/**
+	 * The update method accepts a list of two arraylists where the first one is
+	 * for the available and the second one is for the sold products.
+	 * {@inheritDoc}
+	 */
 	@Override
 	@SuppressWarnings("unchecked")
 	public void update(Observable o, Object arg) {
-		List<Product> listArg = (List<Product>) arg;
-		this.available = (List<Product>) listArg.get(0);
-		this.sold = (List<Product>) listArg.get(1);
-
+		List<List<Product>> listArg = (List<List<Product>>) arg;
+		this.available = listArg.get(0);
+		this.sold = listArg.get(1);
 	}
 }

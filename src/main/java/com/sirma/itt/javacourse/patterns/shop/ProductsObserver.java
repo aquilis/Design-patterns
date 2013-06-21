@@ -15,6 +15,14 @@ public class ProductsObserver extends Observable implements Observer {
 	private List<Product> soldProducts = new ArrayList<Product>();
 	private final List<List<Product>> updatedLists = new ArrayList<List<Product>>();
 
+	/**
+	 * The default constructor adds the available and sold products lists to the
+	 * unified list that wil be passed to the final observers.
+	 */
+	public ProductsObserver() {
+		updatedLists.add(availableProducts);
+		updatedLists.add(soldProducts);
+	}
 
 	@Override
 	@SuppressWarnings("unchecked")
@@ -22,10 +30,12 @@ public class ProductsObserver extends Observable implements Observer {
 		if (o.getClass() == ProductsLister.class) {
 			this.availableProducts = (List<Product>) arg;
 			updatedLists.set(0, availableProducts);
+			setChanged();
 			notifyObservers(updatedLists);
 		} else if (o.getClass() == SoldProductsLister.class) {
 			this.soldProducts = (List<Product>) arg;
 			updatedLists.set(1, soldProducts);
+			setChanged();
 			notifyObservers(updatedLists);
 		}
 	}

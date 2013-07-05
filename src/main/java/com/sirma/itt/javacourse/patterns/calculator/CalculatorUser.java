@@ -1,19 +1,15 @@
 package com.sirma.itt.javacourse.patterns.calculator;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
- * The invoker class for the calculator command pattern. Creates a history of
- * the used commands.
+ * The invoker class for the calculator command pattern.
  */
 public class CalculatorUser {
 
-	private final List<Command> executedCommands = new ArrayList<Command>();
 	private final Calculator calculator = new Calculator();
 	private final Scanner scn = new Scanner(System.in);
-	
+
 	/**
 	 * Opens a custom command line to use the calculator as a console
 	 * application.
@@ -40,15 +36,6 @@ public class CalculatorUser {
 	}
 
 	/**
-	 * A getter method for the commands history.
-	 * 
-	 * @return the list with all commands executed so far.
-	 */
-	public List<Command> getExecutedCommands() {
-		return executedCommands;
-	}
-
-	/**
 	 * Invokes a command with the given parameters.
 	 * 
 	 * @param operator
@@ -58,29 +45,31 @@ public class CalculatorUser {
 	 * @return the result from the calculation
 	 */
 	public float compute(char operator, float operand) {
-		Command cmd = null;
 		switch (operator) {
 			case '+':
-				cmd = new CommandAdd(operand, calculator);
+				calculator
+						.calculate(CommandsFactory.commandOption.ADD, operand);
 				break;
 			case '-':
-				cmd = new CommandSubstract(operand, calculator);
+				calculator.calculate(CommandsFactory.commandOption.SUBSTRACT,
+						operand);
 				break;
 			case '*':
-				cmd = new CommandMultiply(operand, calculator);
+				calculator.calculate(CommandsFactory.commandOption.MULTIPLY,
+						operand);
 				break;
 			case '/':
-				cmd = new CommandDivide(operand, calculator);
+				calculator.calculate(CommandsFactory.commandOption.DIVIDE,
+						operand);
 				break;
 			case '^':
-				cmd = new CommandPower((int) operand, calculator);
+				calculator.calculate(CommandsFactory.commandOption.POWER,
+						operand);
 				break;
 			default:
 				throw new IllegalArgumentException("Operation " + operator
 						+ " is invalid.");
 		}
-		cmd.execute();
-		executedCommands.add(cmd);
 		return calculator.getCurrent();
 	}
 

@@ -2,59 +2,29 @@ package com.sirma.itt.javacourse.patterns.calculator;
 
 
 /**
- * The reciever class that has to be commanded.
+ * A portable calculator class commanded entirely by the concerete command
+ * classes.
  */
 public class Calculator {
+
 	private float current = 0;
-
-	/**
-	 * Adds the opearand to the current result.
-	 * 
-	 * @param operand
-	 *            is the number to add
-	 */
-	public void add(float operand) {
-		current += operand;
-	}
-
-	/**
-	 * Substracts the operand from the current value.
-	 * 
-	 * @param operand
-	 *            is the number to subastarct
-	 */
-	public void substract(float operand) {
-		current -= operand;
-	}
 	
 	/**
-	 * Multiplies the current value by the operand.
+	 * Performs the mathematical operation to the current value according to the
+	 * commandOption specified. For more details, see CommandFactory
+	 * implementation.
 	 * 
+	 * @param commandOption
+	 *            is the mathematical operation to be performed to the
+	 *            calculator's current value and the operand specified
 	 * @param operand
-	 *            is the number to multiply by
+	 *            is the second operand for the command. The first one is the
+	 *            calculator,s current value.
 	 */
-	public void multiply(float operand) {
-		current *= operand;
-	}
-
-	/**
-	 * Divides the current value by the operand value.
-	 * 
-	 * @param operand
-	 *            is the number to divide by
-	 */
-	public void divide(float operand) {
-		current /= operand;
-	}
-
-	/**
-	 * Multiplies the current value by itself the given number of times.
-	 * 
-	 * @param operand
-	 *            is the power to evalueate of
-	 */
-	public void power(int operand) {
-		current = (float) Math.pow(current, operand);
+	public void calculate(CommandsFactory.commandOption commandOption,
+			float operand) {
+		Command tempCommand = new CommandsFactory().getCommand(commandOption);
+		current = tempCommand.execute(current, operand);
 	}
 
 	/**
